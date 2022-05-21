@@ -1,0 +1,14 @@
+#ent numero1 = 100;
+#ent numero2 = 1000;
+#ent mayor;
+
+# Comentario !@#$^&*()(*&^%$#$%^&*(*&^%$#@))
+# asdfghjkl;qwertyuiopzxcvbnm,
+
+txt texto = "hola a todos, devin es bien gei";
+#si(numero1 > numero2){
+#    mayor = numero1;
+#} sino {
+#    mayor = numero2;
+#}
+#numero1/numero2
