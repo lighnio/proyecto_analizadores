@@ -76,7 +76,8 @@ tokens = [
     'ID_VARIABLE',
     'NUMERO',
     'COMENTARIOS_UNA_LINEA',
-    'COMENTARIOS_VARIAS_LINEAS'
+    'COMENTARIOS_VARIAS_LINEAS',
+    'TEXTO'
 ] + list(reservadas.values())
 
 exports = tokens
