@@ -1,6 +1,4 @@
 # Definicion de palabras reservadas
-from random import expovariate
-
 
 reservadas = {
     'ent': 'TIPO_DATO_ENT',
