@@ -171,8 +171,8 @@ analizador = lex.lex()
 analizador.input(datosFichero())
 
 # Tokenizando
-while True:
-    tok = analizador.token()
-    if not tok: 
-        break
-    print(tok)
+# while True:
+#     tok = analizador.token()
+#     if not tok: 
+#         break
+#     print(tok)
