@@ -168,7 +168,7 @@ def t_error(t):
 # Definiendo el Analizador Léxico
 analizador = lex.lex()
 
-analizador.input(datosFichero())
+# analizador.input(datosFichero())
 
 # Tokenizando
 # while True:
