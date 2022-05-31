@@ -29,10 +29,27 @@ def p_program(p):
 
 
 def p_bloque(p):
-    '''bloque : sentencia'''
+    '''bloque : sentencia enunciado'''
     p[0] = p[1]
     print("bloque")  
 
+#enunciados
+def p_enunciado_sentencia(p):
+    '''enunciado : sentencia'''
+    p[0] = p[1]
+    print("sentencia")
+
+def p_enunciado_expresion(p):
+    '''enunciado : expresion'''
+    p[0] = p[1]
+    print("sentencia")
+
+def p_enunciado_multi(p):
+    '''enunciado : enunciado enunciado'''
+    p[0] = p[1] + p[2]
+    print("sentencia")
+
+#sentencias
 def p_sentencia_multi(p):
     '''sentencia : sentencia sentencia'''
     p[0] = p[1] + p[2]
@@ -41,46 +58,75 @@ def p_sentencia_multi(p):
 def p_sentencia(p):
     '''sentencia : sentencia'''
     p[0] = p[1]
-    print("sentencia")    
+    print("sentencia")
+   
 
 def p_sentencia_declara(p):
     '''sentencia : tipo_dato'''
     p[0] = p[1]
     print("sentencia") 
 
+
+
+#Expresiones
+def p_expresion(p):
+    '''expresion : expresion expresion'''
+    p[0] = p[1] + p[2]
+    print("expresion")
+
+def p_expresion(p):
+    '''expresion : expresion'''
+    p[0] = p[1]
+    print("expresion")
+
+def p_expresion(p):
+    '''expresion : operacion'''
+    p[0] = p[1]
+    print("expresion")
+
+
+#Operandos
+def p_operando(p):
+	'''operando : ID_VARIABLE
+                | NUMERO
+                | SIMBOLO_DELIMITADOR_APERTURA NUMERO SIMBOLO_DELIMITADOR_CIERRE'''
+	p[0] = p[1]
+	print("operando")    
+
 # Tipos de datos
-
-def p_tipo_dato_ent(p):
-    'tipo_dato : TIPO_DATO_ENT ID_VARIABLE OPERADOR_ASIGNACION NUMERO SIMBOLO_FIN_LINEA'
+def p_tipo_dato(p):
+    '''tipo_dato : TIPO_DATO_ENT ID_VARIABLE asignacion
+                 | TIPO_DATO_DEC ID_VARIABLE asignacion
+                 | TIPO_DATO_TXT ID_VARIABLE asignacion
+                 | TIPO_DATO_BIN ID_VARIABLE asignacion'''
     p[0] = p[1] + p[2]
-    print("TIPO_DATO_ENT")
-
-def p_tipo_dato_dec(p):
-    'tipo_dato : TIPO_DATO_DEC ID_VARIABLE'
-    p[0] = p[1] + p[2]
-    print("TIPO_DATO_DEC")
-
-def p_tipo_dato_txt(p):
-    'tipo_dato : TIPO_DATO_TXT ID_VARIABLE OPERADOR_ASIGNACION TEXTO SIMBOLO_FIN_LINEA'
-    p[0] = p[1] + p[2]
-    print("TIPO_DATO_TXT")
-
-def p_tipo_dato_bin(p):
-    'tipo_dato : TIPO_DATO_BIN ID_VARIABLE'
-    p[0] = p[1] + p[2]
-    print("TIPO_DATO_BIN")
+    print("TIPO_DATO")
 
 # Asignación de datos
-def p_asignacion_datos(p):
-    'asignacion : ID_VARIABLE OPERADOR_ASIGNACION NUMERO'
+def p_asignacion_datos_val(p):
+    '''asignacion : OPERADOR_ASIGNACION NUMERO SIMBOLO_FIN_LINEA
+                  | OPERADOR_ASIGNACION TEXTO SIMBOLO_FIN_LINEA'''
     p[0] = p[1] + p[3]
+    print('asignacion con valor')
+
+def p_asignacion_datos_No_val(p):
+    'asignacion : SIMBOLO_FIN_LINEA'
+    p[0] = p[1]
+    print('asignacion sin valor')
+
+#operacion
+def p_operacion_basica(p):
+    '''operacion : operando SIMBOLO_OPERACION_ARITMETICA_MAS operando SIMBOLO_FIN_LINEA
+                 | operando SIMBOLO_OPERACION_ARITMETICA_MENOS operando SIMBOLO_FIN_LINEA
+                 | operando SIMBOLO_OPERACION_ARITMETICA_POR operando SIMBOLO_FIN_LINEA
+                 | operando SIMBOLO_OPERACION_ARITMETICA_DIVISION operando SIMBOLO_FIN_LINEA
+                 | operando SIMBOLO_OPERACION_ARITMETICA_MOD operando SIMBOLO_FIN_LINEA'''
+    p[0] = p[1]  + p[3]
+    print('operacion basica')
 
 
 # Error rule for syntax errors
-def p_error(p):
-    print("Syntax error in input!")
-    if p.value[0] == r'\r':
-        print(dir(p))
+
 
 
 # Definiendo el analizador sintáctico

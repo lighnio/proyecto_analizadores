@@ -1,7 +1,7 @@
 ent numero1 = 100;
 ent numero2 = 1000;
-#ent mayor;
-
+ent mayor;
+numero1 + numero2;
 # Comentario !@#$^&*()(*&^%$#$%^&*(*&^%$#@))
 # asdfghjkl;qwertyuiopzxcvbnm,
 
