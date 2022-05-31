@@ -1,5 +1,5 @@
-#ent numero1 = 100;
-#ent numero2 = 1000;
+ent numero1 = 100;
+ent numero2 = 1000;
 #ent mayor;
 
 # Comentario !@#$^&*()(*&^%$#$%^&*(*&^%$#@))

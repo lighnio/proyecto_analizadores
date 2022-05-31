@@ -22,11 +22,36 @@ from ply.yacc import yacc
 #     ('left', 'SIMBOLO_DELIMITADOR_APERTURA', 'SIMBOLO_DELIMITADOR_CIERRE')
 # )
 
+def p_program(p):
+    '''program : bloque'''
+    p[0] = p[1]
+    print("program")
+
+
+def p_bloque(p):
+    '''bloque : sentencia'''
+    p[0] = p[1]
+    print("bloque")  
+
+def p_sentencia_multi(p):
+    '''sentencia : sentencia sentencia'''
+    p[0] = p[1] + p[2]
+    print("sentencia")
+
+def p_sentencia(p):
+    '''sentencia : sentencia'''
+    p[0] = p[1]
+    print("sentencia")    
+
+def p_sentencia_declara(p):
+    '''sentencia : tipo_dato'''
+    p[0] = p[1]
+    print("sentencia") 
 
 # Tipos de datos
 
 def p_tipo_dato_ent(p):
-    'tipo_dato : TIPO_DATO_ENT ID_VARIABLE'
+    'tipo_dato : TIPO_DATO_ENT ID_VARIABLE OPERADOR_ASIGNACION NUMERO SIMBOLO_FIN_LINEA'
     p[0] = p[1] + p[2]
     print("TIPO_DATO_ENT")
 
@@ -36,7 +61,7 @@ def p_tipo_dato_dec(p):
     print("TIPO_DATO_DEC")
 
 def p_tipo_dato_txt(p):
-    'tipo_dato : TIPO_DATO_TXT ID_VARIABLE'
+    'tipo_dato : TIPO_DATO_TXT ID_VARIABLE OPERADOR_ASIGNACION TEXTO SIMBOLO_FIN_LINEA'
     p[0] = p[1] + p[2]
     print("TIPO_DATO_TXT")
 
@@ -56,6 +81,7 @@ def p_error(p):
     print("Syntax error in input!")
     if p.value[0] == r'\r':
         print(dir(p))
+
 
 # Definiendo el analizador sintáctico
 #yacc()
