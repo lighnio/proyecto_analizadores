@@ -20,7 +20,9 @@ reservadas = {
     'mientras': 'SENTENCIA_LOGICA_MIENTRAS',
     'caso': 'SENTENCIA_LOGICA_OPCIONES',
     'romper': 'SENTENCIA_SALIDA_CICLOS',
-    'devolver': 'SENTENCIA_RETORNO'
+    'imprimir' : 'SALIDA_DE_PANTALLA',
+    'escribir' : 'LECTURA_DE_TECLADO',
+    'devolver': 'SENTENCIA_RETORNO',
     
 }
 
@@ -49,6 +51,7 @@ tokens = [
     'OPERADOR_ASIGNACION',
     'SIMBOLO_FIN_LINEA',
     'SIMBOLO_CADENA_TEXTO',
+    'SIMBOLO_DECIMAL',
     'SIMBOLO_OPCIONES',
 
     # Simbolos Delimitadores
@@ -114,6 +117,7 @@ t_OPERADOR_ASIGNACION = r'\='
 t_SIMBOLO_FIN_LINEA = r'\;'
 t_SIMBOLO_CADENA_TEXTO = r'\"'
 t_SIMBOLO_OPCIONES = r'\:'
+t_SIMBOLO_DECIMAL = r'\.'
 
 # Simbolos de Apertura y Cierre
 t_SIMBOLO_DELIMITADOR_APERTURA = r'\('

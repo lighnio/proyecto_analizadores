@@ -1,14 +1,28 @@
 ent numero1 = 100;
 ent numero2 = 1000;
 ent mayor;
+dec decimal = 10.5;
 numero1 + numero2;
 # Comentario !@#$^&*()(*&^%$#$%^&*(*&^%$#@))
 # asdfghjkl;qwertyuiopzxcvbnm,
 
 txt texto = "hola a todos, DGDGDGDG";
-#si(numero1 > numero2){
-#    mayor = numero1;
-#} sino {
-#    mayor = numero2;
-#}
-#numero1/numero2
+numero1/numero2;
+si(numero1 > numero2){
+    mayor = numero1;
+} 
+sino {
+    mayor = numero2;
+}
+
+ciclo(ent i; i<10 ;i++)
+{
+   ent suma = suma + i;
+}
+
+mientras(numero1<200){
+    numero1++;
+    si(numero1 > 150){
+        romper;
+    }
+}
